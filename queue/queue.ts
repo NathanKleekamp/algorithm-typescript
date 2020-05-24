@@ -40,19 +40,19 @@ class Queue<T> {
 
 (() => {
   const queue = new Queue<string>();
-  assertEquals(true, queue.isEmpty());
+  assertEquals(queue.isEmpty(), true);
 
   queue.enqueue("foo");
-  assertEquals(false, queue.isEmpty());
+  assertEquals(queue.isEmpty(), false);
 })();
 
 (() => {
   const queue = new Queue<number>();
-  assertEquals(undefined, queue.peek());
+  assertEquals(queue.peek(), undefined);
 
   queue.enqueue(1);
   queue.enqueue(2);
-  assertEquals(1, queue.peek());
+  assertEquals(queue.peek(), 1);
 })();
 
 (() => {
@@ -60,5 +60,5 @@ class Queue<T> {
   queue.enqueue("foo");
   queue.enqueue("bar");
   const result = queue.dequeue();
-  assertEquals("foo", result);
+  assertEquals(result, "foo");
 })();
