@@ -5,28 +5,28 @@ import {
 class Stack<T> {
   #array: T[] = [];
 
-  push(item: T) {
+  push(item: T): T[] {
     this.#array.push(item);
     return this.#array;
   }
 
-  pop() {
+  pop(): T | void {
     return this.#array.pop();
   }
 
-  count() {
+  count(): number {
     return this.#array.length;
   }
 
-  isEmpty() {
-    return this.#array.length === 0;
+  isEmpty(): boolean {
+    return this.count() === 0;
   }
 
-  peek() {
-    return this.#array[this.#array.length - 1];
+  peek(): T {
+    return this.#array[this.count() - 1];
   }
 
-  first() {
+  first(): T {
     return this.#array[0];
   }
 }
