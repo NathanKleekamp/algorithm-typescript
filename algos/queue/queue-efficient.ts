@@ -3,7 +3,7 @@ import {
 } from "https://deno.land/std@0.53.0/testing/asserts.ts";
 import {
   IndexError,
-} from "../lib/errors.ts";
+} from "../../lib/errors.ts";
 
 const removeFirst = (count: number) => {
   return <T>(arr: T[]): T[] => {

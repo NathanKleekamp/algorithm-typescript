@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+find ./algos -type f -exec echo "Running test: " {} \; -exec deno run {} \;
