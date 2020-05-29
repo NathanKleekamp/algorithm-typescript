@@ -3,10 +3,12 @@
 Basic algorithms
 
 * [Stack](algos/stack/stack.ts)
-* Queue
+* Queues
 	* [Simple queue](algos/queue/queue.ts)
 	* [Efficient queue](algos/queue/queue-efficient.ts)
 * [LinkedList](algos/linked-list/linked-list.ts)
+* Trees
+  * [General Purpose Tree](algos/tree/tree.ts)
 
 To run the tests for each implementation:
 
