@@ -13,7 +13,7 @@ Basic algorithms
 To run the tests for each implementation:
 
 ```bash
-$ deno run stack/stack.ts
+$ deno run algos/stack/stack.ts
 ```
 
 To run all tests
