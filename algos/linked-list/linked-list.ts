@@ -71,12 +71,14 @@ class LinkedList<T> {
   insertAt(index: number, value: T) {
     const node = new Node<T>(value);
     const current = this.index(index);
-    const previous = current?.previous;
+    assertIsDefined(current);
+    const previous = current.previous;
     if (previous) {
       previous.next = node;
       node.previous = previous;
     }
     node.next = current;
+    current.previous = node;
     this.#count++;
   }
 
@@ -240,7 +242,8 @@ class LinkedList<T> {
 (() => {
   const list = new LinkedList<string>();
   list.append("foo");
-  assertEquals(list.count(), 1);
+  list.append("bar");
+  assertEquals(list.count(), 2);
 
   list.clear()
   assertEquals(list.count(), 0);
@@ -270,6 +273,13 @@ class LinkedList<T> {
   assertEquals(list.index(1)!.value, "bar");
   assertEquals(list.index(1)!.previous!.value, "baz");
   assertEquals(list.index(1)!.next!.value, "foo");
+
+  // [baz] => [bar] => [qux] => [foo]
+  list.insertAt(2, "qux");
+
+  assertEquals(list.index(2)!.value, "qux");
+  assertEquals(list.index(2)!.previous!.value, "bar");
+  assertEquals(list.index(2)!.next!.value, "foo");
 })();
 
 // LinkedList.prototype.remove
